@@ -1,0 +1,178 @@
+[gd_scene load_steps=21 format=3 uid="uid://bwgp21qoeyuec"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_kgxtj"]
+[ext_resource type="PackedScene" uid="uid://dd36c2jlv6hsf" path="res://Prefabs/coins_1.tscn" id="2_c74j3"]
+[ext_resource type="PackedScene" uid="uid://d2brytmueexgy" path="res://Prefabs/player.tscn" id="2_euliv"]
+[ext_resource type="PackedScene" uid="uid://carrsfwfw4cl6" path="res://Prefabs/coins_3.tscn" id="2_xp08y"]
+[ext_resource type="PackedScene" uid="uid://dtjj5ns5y6hyg" path="res://Prefabs/background.tscn" id="3_0moos"]
+[ext_resource type="PackedScene" uid="uid://c6snigh4v2kx2" path="res://Prefabs/spike.tscn" id="3_05o1m"]
+[ext_resource type="PackedScene" uid="uid://cr5uvrfl22noc" path="res://Prefabs/floor.tscn" id="3_iayae"]
+[ext_resource type="PackedScene" uid="uid://b666m2pk8bbk3" path="res://Prefabs/coins_2.tscn" id="3_siy1h"]
+[ext_resource type="PackedScene" uid="uid://cxo355ueeaywq" path="res://Prefabs/bounds.tscn" id="4_fs61d"]
+[ext_resource type="PackedScene" uid="uid://cdrbk4sn0l2lr" path="res://Prefabs/spike_1.tscn" id="6_3sqyx"]
+[ext_resource type="Script" path="res://CoinTimer.gd" id="6_np2px"]
+[ext_resource type="PackedScene" uid="uid://dlw1h7oktsk6w" path="res://Prefabs/spike_2.tscn" id="7_l4idd"]
+[ext_resource type="Script" path="res://SpikeTimer.gd" id="9_2iug6"]
+[ext_resource type="AudioStream" uid="uid://cu6w4elwt41rp" path="res://assets/Sound/Juhani Junkala [Retro Game Music Pack] Title Screen.wav" id="14_3530h"]
+[ext_resource type="AudioStream" uid="uid://bugmo733ao58o" path="res://assets/Sound/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="15_r4ydv"]
+[ext_resource type="AudioStream" uid="uid://biobnxa1opk4i" path="res://assets/Sound/Juhani Junkala [Retro Game Music Pack] Ending.wav" id="16_mty6d"]
+[ext_resource type="PackedScene" uid="uid://cclxh0so80dpm" path="res://menu_background.tscn" id="17_n3qjr"]
+[ext_resource type="AudioStream" uid="uid://deut8lxllngdv" path="res://assets/Sound/qubodup-PowerDrain.ogg" id="17_n28n3"]
+[ext_resource type="FontFile" uid="uid://crstrm0wlc0vg" path="res://assets/trixie-trixie-regular-400.ttf" id="19_atjhl"]
+
+[sub_resource type="Curve2D" id="Curve2D_3l6ut"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1369, 29, 0, 0, 0, 0, 1374, 551, 0, 0, 0, 0, 1376, 560)
+}
+point_count = 3
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_kgxtj")
+coin_scene_1 = ExtResource("2_c74j3")
+coin_scene_2 = ExtResource("3_siy1h")
+coin_scene_3 = ExtResource("2_xp08y")
+spike_scene_1 = ExtResource("3_05o1m")
+spike_scene_2 = ExtResource("6_3sqyx")
+spike_scene_3 = ExtResource("7_l4idd")
+
+[node name="Background" parent="." instance=ExtResource("3_0moos")]
+visibility_layer = 32
+position = Vector2(0, -1)
+
+[node name="Player" parent="." instance=ExtResource("2_euliv")]
+top_level = true
+position = Vector2(101, 182)
+scale = Vector2(0.485, 0.485)
+
+[node name="Floor" parent="." instance=ExtResource("3_iayae")]
+
+[node name="Bounds" parent="." instance=ExtResource("4_fs61d")]
+
+[node name="CoinTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("6_np2px")
+
+[node name="SpikeTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("9_2iug6")
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="SpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3l6ut")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
+position = Vector2(1369, 29)
+rotation = 1.56122
+
+[node name="Music" type="Node" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("14_3530h")
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("15_r4ydv")
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("16_mty6d")
+
+[node name="DeadSound" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("17_n28n3")
+
+[node name="MenuBackground" parent="." instance=ExtResource("17_n3qjr")]
+visible = false
+top_level = true
+
+[node name="HUD" type="Node" parent="."]
+
+[node name="Title" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -24.5
+offset_right = 50.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 100
+text = "NO JETPACK?
+JOYRIDE!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = 177.07
+offset_right = 144.5
+offset_bottom = 263.07
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+
+[node name="Score" type="Node" parent="HUD"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Score"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="HUD/Score/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 30
+text = "  SCORE: "
+
+[node name="ScoreNum" type="Label" parent="HUD/Score/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 30
+text = "00000"
+
+[node name="HighScore" type="Node" parent="HUD"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HighScore"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -332.125
+offset_right = -23.1248
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ScoreLabel" type="Label" parent="HUD/HighScore/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 30
+text = "HIGH SCORE: "
+
+[node name="ScoreNum" type="Label" parent="HUD/HighScore/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_atjhl")
+theme_override_font_sizes/font_size = 30
+text = "50000"
+
+[connection signal="game_start" from="." to="Player" method="_on_main_game_start"]
+[connection signal="coin_pickup" from="Player" to="." method="_on_player_coin_pickup"]
+[connection signal="dead_signal" from="Player" to="." method="_on_player_dead_signal"]
+[connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="CoinTimer" to="CoinTimer" method="_on_timeout"]
+[connection signal="timeout" from="SpikeTimer" to="." method="_on_spike_timer_timeout"]
+[connection signal="timeout" from="SpikeTimer" to="SpikeTimer" method="_on_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="CoinTimer" method="_on_difficulty_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="SpikeTimer" method="_on_difficulty_timer_timeout"]
+[connection signal="button_up" from="HUD/Button" to="." method="_on_button_button_up"]

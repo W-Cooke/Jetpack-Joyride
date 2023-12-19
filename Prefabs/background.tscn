@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtjj5ns5y6hyg"]
+
+[ext_resource type="Shader" path="res://assets/Environment/BG.gdshader" id="1_p4ctn"]
+[ext_resource type="Texture2D" uid="uid://ccprbyl32j07i" path="res://assets/Environment/skill-desc_0003_bg.png" id="2_ud7gr"]
+[ext_resource type="Shader" path="res://assets/Environment/Far_buildings.gdshader" id="3_3dmdr"]
+[ext_resource type="Texture2D" uid="uid://dogfrrp2mkan1" path="res://assets/Environment/skill-desc_0002_far-buildings.png" id="4_81n37"]
+[ext_resource type="Shader" path="res://assets/Environment/Buildings.gdshader" id="5_esrij"]
+[ext_resource type="Texture2D" uid="uid://d0kay64b3lh22" path="res://assets/Environment/skill-desc_0001_buildings.png" id="6_dufam"]
+[ext_resource type="Shader" path="res://assets/Environment/BG_Foreground.gdshader" id="7_ry2al"]
+[ext_resource type="Texture2D" uid="uid://ccow18rlwp05o" path="res://assets/Environment/skill-desc_0000_foreground.png" id="8_t4keg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_126xh"]
+shader = ExtResource("1_p4ctn")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya3s7"]
+shader = ExtResource("3_3dmdr")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h21v4"]
+shader = ExtResource("5_esrij")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.195
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_no02m"]
+shader = ExtResource("7_ry2al")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.5
+
+[node name="Background" type="Node2D"]
+process_mode = 1
+
+[node name="Skill-desc0003Bg" type="Sprite2D" parent="."]
+process_mode = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_126xh")
+position = Vector2(597, 345)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_ud7gr")
+
+[node name="Skill-desc0002Far-buildings" type="Sprite2D" parent="."]
+process_mode = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ya3s7")
+position = Vector2(571, 385)
+scale = Vector2(5.555, 5.555)
+texture = ExtResource("4_81n37")
+
+[node name="Skill-desc0001Buildings" type="Sprite2D" parent="."]
+process_mode = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h21v4")
+position = Vector2(584, 377)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_dufam")
+
+[node name="Skill-desc0000Foreground" type="Sprite2D" parent="."]
+process_mode = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_no02m")
+position = Vector2(582, 429)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("8_t4keg")

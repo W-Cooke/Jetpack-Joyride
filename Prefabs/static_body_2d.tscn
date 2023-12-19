@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpgghkvv6sv5o"]
+
+[ext_resource type="Texture2D" uid="uid://bmlmrqycvsso6" path="res://assets/Environment/tile_0088.png" id="1_a0i15"]
+[ext_resource type="Shader" path="res://static_body_2d.gdshader" id="1_akgfl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsmcb"]
+shader = ExtResource("1_akgfl")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hmvu"]
+size = Vector2(128, 127)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vsmcb")
+position = Vector2(2.74181e-06, -0.5)
+scale = Vector2(7.11111, 7.05556)
+texture = ExtResource("1_a0i15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6hmvu")

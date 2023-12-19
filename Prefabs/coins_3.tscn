@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://carrsfwfw4cl6"]
+
+[ext_resource type="PackedScene" uid="uid://5cet40ov2b8e" path="res://Prefabs/coin.tscn" id="1_8et2t"]
+
+[node name="Coins_3" type="Node2D"]
+
+[node name="Coin" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(-1, -30)
+
+[node name="Coin2" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(0, 35)
+
+[node name="Coin3" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(56, -32)
+
+[node name="Coin4" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(57, 33)
+
+[node name="Coin5" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(113, -32)
+
+[node name="Coin6" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(114, 33)
+
+[node name="Coin7" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(172, -33)
+
+[node name="Coin8" parent="." instance=ExtResource("1_8et2t")]
+position = Vector2(173, 32)

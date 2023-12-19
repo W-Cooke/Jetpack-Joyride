@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr5uvrfl22noc"]
+
+[ext_resource type="PackedScene" uid="uid://dpgghkvv6sv5o" path="res://Prefabs/static_body_2d.tscn" id="1_jjp0k"]
+
+[node name="Floor" type="Node2D"]
+
+[node name="StaticBody2D2" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(178, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D3" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(50, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D4" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(306, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D5" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(433, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D6" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(559, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D7" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(685, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D8" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(812, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D9" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(939, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D10" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(1065, 655)
+scale = Vector2(0.995, 0.995)
+
+[node name="StaticBody2D11" parent="." groups=["floor"] instance=ExtResource("1_jjp0k")]
+position = Vector2(1191, 655)
+scale = Vector2(0.995, 0.995)

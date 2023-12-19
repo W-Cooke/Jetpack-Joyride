@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6snigh4v2kx2"]
+
+[ext_resource type="Texture2D" uid="uid://cvbkk344l2f03" path="res://assets/Objects/_abbfc5c4-71d2-4e0c-a08a-1b7a4a379343-removebg-preview.png" id="1_hutsq"]
+[ext_resource type="Script" path="res://Prefabs/spike.gd" id="1_nb5x5"]
+[ext_resource type="Shader" path="res://spike.gdshader" id="2_qqo4k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0w2c"]
+shader = ExtResource("2_qqo4k")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yolcr"]
+radius = 45.7366
+
+[node name="Spike" type="Area2D" groups=["spike"]]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_nb5x5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_y0w2c")
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("1_hutsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yolcr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

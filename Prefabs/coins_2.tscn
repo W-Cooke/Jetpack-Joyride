@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://b666m2pk8bbk3"]
+
+[ext_resource type="PackedScene" uid="uid://5cet40ov2b8e" path="res://Prefabs/coin.tscn" id="1_exep5"]
+
+[node name="Coins2" type="Node2D"]
+
+[node name="Coin" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(29, 33)
+
+[node name="Coin2" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(28, -26)
+
+[node name="Coin3" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(86, 30)
+
+[node name="Coin4" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(85, -29)
+
+[node name="Coin5" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(147, 28)
+
+[node name="Coin6" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(146, -31)
+
+[node name="Coin7" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(204, 25)
+
+[node name="Coin8" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(203, -34)
+
+[node name="Coin9" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(261, 23)
+
+[node name="Coin10" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(260, -36)
+
+[node name="Coin11" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(318, 20)
+
+[node name="Coin12" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(317, -39)
+
+[node name="Coin13" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(379, 18)
+
+[node name="Coin14" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(378, -41)
+
+[node name="Coin15" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(436, 15)
+
+[node name="Coin16" parent="." instance=ExtResource("1_exep5")]
+position = Vector2(435, -44)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cclxh0so80dpm"]
+
+[ext_resource type="Shader" path="res://MenuBG.gdshader" id="1_ebhg4"]
+[ext_resource type="Texture2D" uid="uid://ccprbyl32j07i" path="res://assets/Environment/skill-desc_0003_bg.png" id="2_tn3lo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tw4pl"]
+shader = ExtResource("1_ebhg4")
+shader_parameter/direction = Vector2(-1, 0)
+shader_parameter/speed = 0.01
+
+[node name="MenuBackground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_tw4pl")
+position = Vector2(577, 324)
+scale = Vector2(4.41636, 4.22344)
+texture = ExtResource("2_tn3lo")

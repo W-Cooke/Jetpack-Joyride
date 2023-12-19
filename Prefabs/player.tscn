@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2brytmueexgy"]
+
+[ext_resource type="PackedScene" uid="uid://ch0vnreulth0q" path="res://animated_sprite_2d.tscn" id="1_4wxys"]
+[ext_resource type="Script" path="res://Prefabs/player.gd" id="1_42ae2"]
+[ext_resource type="Texture2D" uid="uid://cq4l2esv7j3u6" path="res://assets/Particles/magic_05.png" id="3_jro75"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y5sm4"]
+radius = 59.0
+height = 178.0
+
+[sub_resource type="Curve" id="Curve_rh6yc"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -11.8681), 0.0, 0.0, 0, 0, Vector2(1, 27.6923), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oou0h"]
+curve = SubResource("Curve_rh6yc")
+
+[sub_resource type="Curve" id="Curve_o5pp3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8y233"]
+curve = SubResource("Curve_o5pp3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jipti"]
+particle_flag_disable_z = true
+angle_min = -90.9
+angle_max = 93.4
+angle_curve = SubResource("CurveTexture_oou0h")
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_8y233")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kyeyf"]
+radius = 60.0
+height = 194.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_42ae2")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_4wxys")]
+animation = &"running"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 41)
+shape = SubResource("CapsuleShape2D_y5sm4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-13, 85)
+rotation = 1.5708
+amount = 29
+process_material = SubResource("ParticleProcessMaterial_jipti")
+texture = ExtResource("3_jro75")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 37)
+shape = SubResource("CapsuleShape2D_kyeyf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

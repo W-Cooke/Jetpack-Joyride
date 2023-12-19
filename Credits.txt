@@ -1,0 +1,16 @@
+sprite character from 
+	Kenney.nl
+floor texture from 
+	Kenney.nl
+parallax scrolling background from ansimuz on OpenGameArt.org 
+	https://opengameart.org/content/industrial-parallax-background
+coin textures from Puddin on OpenGameArt.org
+	https://opengameart.org/content/rotating-coin
+coin sounds from Luke.RUSTLTD on OpenGameArt.org
+	https://opengameart.org/content/10-8bit-coin-sounds
+music from SubspaceAudio on OpenGameArt.org
+	https://opengameart.org/content/5-chiptunes-action
+font Trixie Font from Freepik
+	https://www.freepik.com/font/trixie
+Game Over sound from qubodup on OpenGameArt.org
+	https://opengameart.org/content/energy-drain

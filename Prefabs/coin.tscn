@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://5cet40ov2b8e"]
+
+[ext_resource type="Script" path="res://Prefabs/coin.gd" id="1_ks161"]
+[ext_resource type="Texture2D" uid="uid://svlfd6qd6f7f" path="res://assets/Objects/coin_01.png" id="1_kwxd7"]
+[ext_resource type="Texture2D" uid="uid://coh8yhtvkbtvf" path="res://assets/Objects/coin_02.png" id="2_tv7q8"]
+[ext_resource type="Texture2D" uid="uid://crsb2x700riyu" path="res://assets/Objects/coin_03.png" id="3_7spa8"]
+[ext_resource type="Texture2D" uid="uid://c7x586xp1q10i" path="res://assets/Objects/coin_04.png" id="4_4ivr4"]
+[ext_resource type="Texture2D" uid="uid://o6ujtb7x30qn" path="res://assets/Objects/coin_05.png" id="5_r24nr"]
+[ext_resource type="Texture2D" uid="uid://4m5x4pbhu5qi" path="res://assets/Objects/coin_06.png" id="6_kn65w"]
+[ext_resource type="Texture2D" uid="uid://d0euyeer1qlq0" path="res://assets/Objects/coin_07.png" id="7_1qagf"]
+[ext_resource type="Texture2D" uid="uid://dw4bl6ynahfy3" path="res://assets/Objects/coin_08.png" id="8_0nv2g"]
+[ext_resource type="AudioStream" uid="uid://don8ufilqal2i" path="res://assets/Sound/coin2.wav" id="10_cwfid"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aeeu0"]
+radius = 25.02
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l43eg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kwxd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tv7q8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7spa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ivr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r24nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kn65w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1qagf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0nv2g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Coin" type="Area2D" groups=["coins"]]
+script = ExtResource("1_ks161")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aeeu0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l43eg")
+autoplay = "default"
+frame = 1
+frame_progress = 0.622821
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cwfid")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

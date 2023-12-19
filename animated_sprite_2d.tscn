@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://ch0vnreulth0q"]
+
+[ext_resource type="Texture2D" uid="uid://dsixraiunchpn" path="res://assets/Player/character_malePerson_sheetHD.png" id="1_x26le"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p0mn"]
+atlas = ExtResource("1_x26le")
+region = Rect2(1536, 1024, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1sm2"]
+atlas = ExtResource("1_x26le")
+region = Rect2(768, 768, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h5ui"]
+atlas = ExtResource("1_x26le")
+region = Rect2(384, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w58ud"]
+atlas = ExtResource("1_x26le")
+region = Rect2(192, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm7oo"]
+atlas = ExtResource("1_x26le")
+region = Rect2(576, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht87e"]
+atlas = ExtResource("1_x26le")
+region = Rect2(1152, 512, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asoii"]
+atlas = ExtResource("1_x26le")
+region = Rect2(1344, 512, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqqu"]
+atlas = ExtResource("1_x26le")
+region = Rect2(1536, 512, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71wlh"]
+atlas = ExtResource("1_x26le")
+region = Rect2(1344, 512, 192, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtn5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p0mn")
+}],
+"loop": true,
+"name": &"dead_in_air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1sm2")
+}],
+"loop": true,
+"name": &"dead_on_ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h5ui")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w58ud")
+}],
+"loop": true,
+"name": &"jump_up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm7oo")
+}],
+"loop": true,
+"name": &"landing",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht87e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asoii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srqqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71wlh")
+}],
+"loop": true,
+"name": &"running",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jtn5i")
+animation = &"dead_in_air"
+autoplay = "running"
