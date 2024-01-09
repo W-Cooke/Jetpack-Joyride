@@ -3,9 +3,11 @@ extends Node2D
 #TODO: Score, high score
 
 # obstacles and coins, first loaded, then placed in an array later
+@export_category("Coins")
 @export var coin_scene_1 : PackedScene
 @export var coin_scene_2 : PackedScene
 @export var coin_scene_3 : PackedScene
+@export_category("Spikes")
 @export var spike_scene_1 : PackedScene
 @export var spike_scene_2 : PackedScene
 @export var spike_scene_3 : PackedScene
